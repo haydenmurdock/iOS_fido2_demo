@@ -1,0 +1,525 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2BB85577041C05906138C442 /* Pods_iOSFidoTwoDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBB9C7F678A2FDCC27AE5AF4 /* Pods_iOSFidoTwoDemo.framework */; };
+		F74B907C28B415E7008E53EB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F74B907B28B415E7008E53EB /* AppDelegate.swift */; };
+		F74B907E28B415E7008E53EB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F74B907D28B415E7008E53EB /* SceneDelegate.swift */; };
+		F74B908028B415E7008E53EB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F74B907F28B415E7008E53EB /* ViewController.swift */; };
+		F74B908328B415E7008E53EB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F74B908128B415E7008E53EB /* Main.storyboard */; };
+		F74B908528B415E8008E53EB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F74B908428B415E8008E53EB /* Assets.xcassets */; };
+		F74B908828B415E8008E53EB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F74B908628B415E8008E53EB /* LaunchScreen.storyboard */; };
+		F74B909028B4160D008E53EB /* PresidioIdentityModelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F74B908F28B4160D008E53EB /* PresidioIdentityModelController.swift */; };
+		F74B909228B416ED008E53EB /* PublicKeyCredentialOptionsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F74B909128B416ED008E53EB /* PublicKeyCredentialOptionsResponse.swift */; };
+		F74C1EED2950DD05006A62E9 /* AccountManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F74C1EEC2950DD05006A62E9 /* AccountManager.swift */; };
+		F74C1EEF295274AB006A62E9 /* BankAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F74C1EEE295274AB006A62E9 /* BankAccountViewController.swift */; };
+		F76BA3DE294CDE56001D612C /* CustomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F76BA3DD294CDE56001D612C /* CustomViewController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		F7F20262294CD9BB0003FBAE /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		6FB0A8BF2545D6018F4DB0DE /* Pods-iOSFidoTwoDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSFidoTwoDemo.release.xcconfig"; path = "Target Support Files/Pods-iOSFidoTwoDemo/Pods-iOSFidoTwoDemo.release.xcconfig"; sourceTree = "<group>"; };
+		CEDF7555BC344B82B2D22AA1 /* Pods-iOSFidoTwoDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSFidoTwoDemo.debug.xcconfig"; path = "Target Support Files/Pods-iOSFidoTwoDemo/Pods-iOSFidoTwoDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		EBB9C7F678A2FDCC27AE5AF4 /* Pods_iOSFidoTwoDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOSFidoTwoDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F74B907828B415E7008E53EB /* iOSFidoTwoDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSFidoTwoDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F74B907B28B415E7008E53EB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		F74B907D28B415E7008E53EB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		F74B907F28B415E7008E53EB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		F74B908228B415E7008E53EB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		F74B908428B415E8008E53EB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F74B908728B415E8008E53EB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		F74B908928B415E8008E53EB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F74B908F28B4160D008E53EB /* PresidioIdentityModelController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresidioIdentityModelController.swift; sourceTree = "<group>"; };
+		F74B909128B416ED008E53EB /* PublicKeyCredentialOptionsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicKeyCredentialOptionsResponse.swift; sourceTree = "<group>"; };
+		F74C1EEC2950DD05006A62E9 /* AccountManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountManager.swift; sourceTree = "<group>"; };
+		F74C1EEE295274AB006A62E9 /* BankAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankAccountViewController.swift; sourceTree = "<group>"; };
+		F76BA3DD294CDE56001D612C /* CustomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomViewController.swift; sourceTree = "<group>"; };
+		F7F20255294CD9BB0003FBAE /* NetworkExtension.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NetworkExtension.framework; path = System/Library/Frameworks/NetworkExtension.framework; sourceTree = SDKROOT; };
+		F7F20258294CD9BB0003FBAE /* AppProxyProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppProxyProvider.swift; sourceTree = "<group>"; };
+		F7F2025A294CD9BB0003FBAE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F7F2025B294CD9BB0003FBAE /* iOSFidoTwoDemoTest.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = iOSFidoTwoDemoTest.entitlements; sourceTree = "<group>"; };
+		F7F20268294CD9E00003FBAE /* AuthenticationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AuthenticationServices.framework; path = System/Library/Frameworks/AuthenticationServices.framework; sourceTree = SDKROOT; };
+		F7F2026B294CD9E10003FBAE /* AuthenticationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewController.swift; sourceTree = "<group>"; };
+		F7F2026E294CD9E10003FBAE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/AuthenticationViewController.xib; sourceTree = "<group>"; };
+		F7F20270294CD9E10003FBAE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F7F20277294CDB410003FBAE /* iOSFidoTwoDemo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = iOSFidoTwoDemo.entitlements; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F74B907528B415E7008E53EB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2BB85577041C05906138C442 /* Pods_iOSFidoTwoDemo.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		93C67BD66ADA9EBDB1BE522D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				CEDF7555BC344B82B2D22AA1 /* Pods-iOSFidoTwoDemo.debug.xcconfig */,
+				6FB0A8BF2545D6018F4DB0DE /* Pods-iOSFidoTwoDemo.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		E0B322E26F75D8FD28378782 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EBB9C7F678A2FDCC27AE5AF4 /* Pods_iOSFidoTwoDemo.framework */,
+				F7F20255294CD9BB0003FBAE /* NetworkExtension.framework */,
+				F7F20268294CD9E00003FBAE /* AuthenticationServices.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F74B906F28B415E7008E53EB = {
+			isa = PBXGroup;
+			children = (
+				F74B907A28B415E7008E53EB /* iOSFidoTwoDemo */,
+				F7F20257294CD9BB0003FBAE /* iOSFidoTwoDemoTest */,
+				F7F2026A294CD9E10003FBAE /* fido2AuthDemo */,
+				F74B907928B415E7008E53EB /* Products */,
+				93C67BD66ADA9EBDB1BE522D /* Pods */,
+				E0B322E26F75D8FD28378782 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		F74B907928B415E7008E53EB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F74B907828B415E7008E53EB /* iOSFidoTwoDemo.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F74B907A28B415E7008E53EB /* iOSFidoTwoDemo */ = {
+			isa = PBXGroup;
+			children = (
+				F7F20277294CDB410003FBAE /* iOSFidoTwoDemo.entitlements */,
+				F74C1EEC2950DD05006A62E9 /* AccountManager.swift */,
+				F74B907B28B415E7008E53EB /* AppDelegate.swift */,
+				F74B907D28B415E7008E53EB /* SceneDelegate.swift */,
+				F74B907F28B415E7008E53EB /* ViewController.swift */,
+				F74B908F28B4160D008E53EB /* PresidioIdentityModelController.swift */,
+				F74B909128B416ED008E53EB /* PublicKeyCredentialOptionsResponse.swift */,
+				F74B908128B415E7008E53EB /* Main.storyboard */,
+				F74C1EEE295274AB006A62E9 /* BankAccountViewController.swift */,
+				F74B908428B415E8008E53EB /* Assets.xcassets */,
+				F74B908628B415E8008E53EB /* LaunchScreen.storyboard */,
+				F74B908928B415E8008E53EB /* Info.plist */,
+				F76BA3DD294CDE56001D612C /* CustomViewController.swift */,
+			);
+			path = iOSFidoTwoDemo;
+			sourceTree = "<group>";
+		};
+		F7F20257294CD9BB0003FBAE /* iOSFidoTwoDemoTest */ = {
+			isa = PBXGroup;
+			children = (
+				F7F20258294CD9BB0003FBAE /* AppProxyProvider.swift */,
+				F7F2025A294CD9BB0003FBAE /* Info.plist */,
+				F7F2025B294CD9BB0003FBAE /* iOSFidoTwoDemoTest.entitlements */,
+			);
+			path = iOSFidoTwoDemoTest;
+			sourceTree = "<group>";
+		};
+		F7F2026A294CD9E10003FBAE /* fido2AuthDemo */ = {
+			isa = PBXGroup;
+			children = (
+				F7F2026B294CD9E10003FBAE /* AuthenticationViewController.swift */,
+				F7F2026D294CD9E10003FBAE /* AuthenticationViewController.xib */,
+				F7F20270294CD9E10003FBAE /* Info.plist */,
+			);
+			path = fido2AuthDemo;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F74B907728B415E7008E53EB /* iOSFidoTwoDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F74B908C28B415E8008E53EB /* Build configuration list for PBXNativeTarget "iOSFidoTwoDemo" */;
+			buildPhases = (
+				FF208273965272B814F3604D /* [CP] Check Pods Manifest.lock */,
+				F74B907428B415E7008E53EB /* Sources */,
+				F74B907528B415E7008E53EB /* Frameworks */,
+				F74B907628B415E7008E53EB /* Resources */,
+				7CC9682BB545507BB8443D63 /* [CP] Embed Pods Frameworks */,
+				F7F20262294CD9BB0003FBAE /* Embed Foundation Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = iOSFidoTwoDemo;
+			productName = iOSFidoTwoDemo;
+			productReference = F74B907828B415E7008E53EB /* iOSFidoTwoDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F74B907028B415E7008E53EB /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1420;
+				LastUpgradeCheck = 1340;
+				TargetAttributes = {
+					F74B907728B415E7008E53EB = {
+						CreatedOnToolsVersion = 13.4.1;
+					};
+				};
+			};
+			buildConfigurationList = F74B907328B415E7008E53EB /* Build configuration list for PBXProject "iOSFidoTwoDemo" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F74B906F28B415E7008E53EB;
+			productRefGroup = F74B907928B415E7008E53EB /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F74B907728B415E7008E53EB /* iOSFidoTwoDemo */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F74B907628B415E7008E53EB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F74B908828B415E8008E53EB /* LaunchScreen.storyboard in Resources */,
+				F74B908528B415E8008E53EB /* Assets.xcassets in Resources */,
+				F74B908328B415E7008E53EB /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		7CC9682BB545507BB8443D63 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-iOSFidoTwoDemo/Pods-iOSFidoTwoDemo-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-iOSFidoTwoDemo/Pods-iOSFidoTwoDemo-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-iOSFidoTwoDemo/Pods-iOSFidoTwoDemo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FF208273965272B814F3604D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-iOSFidoTwoDemo-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F74B907428B415E7008E53EB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F74B909228B416ED008E53EB /* PublicKeyCredentialOptionsResponse.swift in Sources */,
+				F74C1EED2950DD05006A62E9 /* AccountManager.swift in Sources */,
+				F74C1EEF295274AB006A62E9 /* BankAccountViewController.swift in Sources */,
+				F74B908028B415E7008E53EB /* ViewController.swift in Sources */,
+				F74B907C28B415E7008E53EB /* AppDelegate.swift in Sources */,
+				F76BA3DE294CDE56001D612C /* CustomViewController.swift in Sources */,
+				F74B909028B4160D008E53EB /* PresidioIdentityModelController.swift in Sources */,
+				F74B907E28B415E7008E53EB /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		F74B908128B415E7008E53EB /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F74B908228B415E7008E53EB /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		F74B908628B415E8008E53EB /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F74B908728B415E8008E53EB /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		F7F2026D294CD9E10003FBAE /* AuthenticationViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F7F2026E294CD9E10003FBAE /* Base */,
+			);
+			name = AuthenticationViewController.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		F74B908A28B415E8008E53EB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		F74B908B28B415E8008E53EB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F74B908D28B415E8008E53EB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CEDF7555BC344B82B2D22AA1 /* Pods-iOSFidoTwoDemo.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = iOSFidoTwoDemo/iOSFidoTwoDemo.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 4X5NURS3PH;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = iOSFidoTwoDemo/Info.plist;
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "Privacy description regarding to usage of FaceID feature";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.presidioidentiy.iOSFidoTwoDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		F74B908E28B415E8008E53EB /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6FB0A8BF2545D6018F4DB0DE /* Pods-iOSFidoTwoDemo.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = iOSFidoTwoDemo/iOSFidoTwoDemo.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 4X5NURS3PH;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = iOSFidoTwoDemo/Info.plist;
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "Privacy description regarding to usage of FaceID feature";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.presidioidentiy.iOSFidoTwoDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F74B907328B415E7008E53EB /* Build configuration list for PBXProject "iOSFidoTwoDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F74B908A28B415E8008E53EB /* Debug */,
+				F74B908B28B415E8008E53EB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F74B908C28B415E8008E53EB /* Build configuration list for PBXNativeTarget "iOSFidoTwoDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F74B908D28B415E8008E53EB /* Debug */,
+				F74B908E28B415E8008E53EB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F74B907028B415E7008E53EB /* Project object */;
+}

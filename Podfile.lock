@@ -1,0 +1,16 @@
+PODS:
+  - Singularkey (1.0.5)
+
+DEPENDENCIES:
+  - Singularkey
+
+SPEC REPOS:
+  trunk:
+    - Singularkey
+
+SPEC CHECKSUMS:
+  Singularkey: d140b54cc9edf041bb9d38dcde9135859e2bd149
+
+PODFILE CHECKSUM: 3f02552bfd4af081337264e2627df95edfc68d88
+
+COCOAPODS: 1.11.3
