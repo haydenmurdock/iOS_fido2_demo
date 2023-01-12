@@ -24,7 +24,7 @@
                                 </constraints>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Xh-eV-VpB">
-                                <rect key="frame" x="0.0" y="330" width="414" height="566"/>
+                                <rect key="frame" x="0.0" y="330" width="414" height="576"/>
                                 <subviews>
                                     <textField hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="username" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="LUK-Eh-my1">
                                         <rect key="frame" x="20" y="106.5" width="374" height="34"/>
@@ -100,7 +100,7 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="nSk-tJ-GkA" secondAttribute="trailing" id="DTi-Z5-d82"/>
                             <constraint firstItem="4Xh-eV-VpB" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="JQx-In-Rd3"/>
                             <constraint firstItem="nSk-tJ-GkA" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="30" id="LtG-f6-hHp"/>
-                            <constraint firstAttribute="bottom" secondItem="4Xh-eV-VpB" secondAttribute="bottom" id="PRe-u3-CC9"/>
+                            <constraint firstAttribute="bottom" secondItem="4Xh-eV-VpB" secondAttribute="bottom" constant="-10" id="PRe-u3-CC9"/>
                             <constraint firstItem="4Xh-eV-VpB" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="330" id="V8s-e2-Jtf"/>
                         </constraints>
                     </view>

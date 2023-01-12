@@ -65,6 +65,9 @@ class AccountManager: NSObject, ASAuthorizationControllerPresentationContextProv
         let publicKeyCredentialProvider = ASAuthorizationPlatformPublicKeyCredentialProvider(relyingPartyIdentifier: domain)
 
         // Fetch the challenge from the server. The challenge needs to be unique for each request.
+        
+        // change to make this presidioIdentity's challenge
+        instead. 
         let challenge = Data()
         let assertionRequest = publicKeyCredentialProvider.createCredentialAssertionRequest(challenge: challenge)
 
