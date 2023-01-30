@@ -10,7 +10,8 @@ import Foundation
 
 class PresidioIdentityModelController {
     static let shared = PresidioIdentityModelController()
-    let baseUrl = "https://develop.presidioidentity.net/api/"
+   // let baseUrl = "https://develop.presidioidentity.net/api/"
+    let baseUrl = "https://haydenapp.app.presidioidentity.net/fido2/"
     
     func sendUserName(userName: String, displayName: String, completion: @escaping(Data?) -> Void) {
         let attestationOptionsUrlString = baseUrl + "attestation/options"
