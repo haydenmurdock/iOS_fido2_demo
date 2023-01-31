@@ -18,7 +18,7 @@ extension NSNotification.Name {
 }
 
 class AccountManager: NSObject, ASAuthorizationControllerPresentationContextProviding, ASAuthorizationControllerDelegate {
-    let domain = "develop.presidioidentity.net"
+    let domain = "haydenapp.app.presidioidentity.net"
     var authenticationAnchor: ASPresentationAnchor?
     var isPerformingModalReqest = false
 
@@ -26,7 +26,6 @@ class AccountManager: NSObject, ASAuthorizationControllerPresentationContextProv
         self.authenticationAnchor = anchor
         let publicKeyCredentialProvider = ASAuthorizationPlatformPublicKeyCredentialProvider(relyingPartyIdentifier: domain)
 
-        // Fetch the challenge from the server. The challenge needs to be unique for each request.
 
         let assertionRequest = publicKeyCredentialProvider.createCredentialAssertionRequest(challenge: challenge)
 
@@ -78,13 +77,13 @@ class AccountManager: NSObject, ASAuthorizationControllerPresentationContextProv
         authController.performAutoFillAssistedRequests()
     }
     
-    func signUpWith(userName: String, anchor: ASPresentationAnchor) {
+    func signUpWith(userName: String, anchor: ASPresentationAnchor, challenge: Data) {
         self.authenticationAnchor = anchor
         let publicKeyCredentialProvider = ASAuthorizationPlatformPublicKeyCredentialProvider(relyingPartyIdentifier: domain)
 
         // Fetch the challenge from the server. The challenge needs to be unique for each request.
         // The userID is the identifier for the user's account.
-        let challenge = Data()
+        
         let userID = Data(UUID().uuidString.utf8)
 
         let registrationRequest = publicKeyCredentialProvider.createCredentialRegistrationRequest(challenge: challenge,

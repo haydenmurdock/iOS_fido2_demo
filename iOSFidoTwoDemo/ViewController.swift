@@ -23,6 +23,7 @@ class ViewController: UIViewController {
     private var signInObserver: NSObjectProtocol?
     private var signInErrorObserver: NSObjectProtocol?
     var challenge: Data?
+    var isSignUp = false
     
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
@@ -30,10 +31,18 @@ class ViewController: UIViewController {
         roundView()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        signInButton.isHidden = true
+        signInButton.isUserInteractionEnabled = false
+        showSignInUI()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         overrideUserInterfaceStyle = .light
         roundView()
+        
         
     }
     override func viewDidAppear(_ animated: Bool) {
@@ -49,7 +58,6 @@ class ViewController: UIViewController {
                 return
             }
             self.showAlertController()
-           // self.createAccount(username: username)
         }
     }
     
@@ -69,7 +77,18 @@ class ViewController: UIViewController {
         self.view.endEditing(true)
         guard let username = usernameTextField.text, username.count > 0 else {return}
         addBlurView()
-        createAccount(username: username)
+        
+            PresidioIdentityModelController.shared.sendUserName(userName: username, displayName: username) { response in
+           if let response = response {
+               DispatchQueue.main.async {
+                   if(self.isSignUp){
+                   self.createAccount(username: username, challenge: response)
+                   } else {
+                       self.signIn(challenge: response)
+                   }
+                }
+            }
+        }
     }
     
     @IBAction func signUpbuttonPressed(_ sender: Any) {
@@ -111,15 +130,21 @@ class ViewController: UIViewController {
         activityIndicator.removeFromSuperview()
     }
     
-    func createAccount(username: String){
+    func createAccount(username: String, challenge: Data){
         if username.count < 0 {
             print("no username entered")
             return
         }
 
         guard let window = self.view.window else { fatalError("The view was not in the app's view hierarchy!") }
-        (UIApplication.shared.delegate as? AppDelegate)?.accountManager.signUpWith(userName: username, anchor: window)
+        (UIApplication.shared.delegate as? AppDelegate)?.accountManager.signUpWith(userName: username, anchor: window, challenge: challenge)
     }
+    
+    func signIn(challenge: Data){
+        guard let window = self.view.window else { fatalError("The view was not in the app's view hierarchy!") }
+        (UIApplication.shared.delegate as? AppDelegate)?.accountManager.signInWith(anchor: window, preferImmediatelyAvailableCredentials: true, challenge: challenge)
+    }
+    
     func showAlertController() {
         let dialogMessage = UIAlertController(title: "Canceled", message: "Passkey sign in was canceled", preferredStyle: .alert)
         let cancelAccountAction = UIAlertAction(title: "Back to Sign In", style: .default, handler:{ (action) -> Void in
@@ -131,17 +156,19 @@ class ViewController: UIViewController {
     }
     @IBAction func signInButtonPressed(_ sender: Any) {
         addBlurView()
-        guard let window = self.view.window else { fatalError("The view was not in the app's view hierarchy!") }
-                PresidioIdentityModelController.shared.sendUserName(userName: "iOSpasskeyDemo", displayName: "iOSpasskeyDemo") { response in
+        guard let username = usernameTextField.text, username.count > 0 else {return}
+        
+        PresidioIdentityModelController.shared.sendUserName(userName: username, displayName: username) { response in
                if let response = response {
                    DispatchQueue.main.async {
-                     (UIApplication.shared.delegate as? AppDelegate)?.accountManager.signInWith(anchor: window, preferImmediatelyAvailableCredentials: true, challenge: (response))
+                       self.signIn(challenge: response)
                    }
                }
            }
     }
     
     func showSignUpUI() {
+        isSignUp = true
         usernameTextField.isHidden = false
         usernameTextField.isUserInteractionEnabled = true
         signInButton.isHidden = true
@@ -150,18 +177,25 @@ class ViewController: UIViewController {
         noaccountLabel.isHidden = true
         signUpbutton.isHidden = true
         headingLabel.text = "Sign Up"
+        usernameTextField.text = ""
         usernameTextField.becomeFirstResponder()
+        
         view.updateConstraints()
     }
     func showSignInUI() {
-        usernameTextField.isHidden = true
-        usernameTextField.isUserInteractionEnabled = false
+        isSignUp = false
+        usernameTextField.isHidden = false
+        usernameTextField.isUserInteractionEnabled = true
         signInButton.isHidden = false
         signInButton.isUserInteractionEnabled = true
+    
         
         noaccountLabel.isHidden = false
         signUpbutton.isHidden = false
         headingLabel.text = "Welcome Back"
+        usernameTextField.text = ""
+       // usernameTextField.becomeFirstResponder()
+        
         view.updateConstraints()
     }
 }

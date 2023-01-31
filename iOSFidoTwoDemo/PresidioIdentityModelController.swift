@@ -46,7 +46,6 @@ class PresidioIdentityModelController {
                 do {
                     completion(data)
                     if let object =  try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
-                        print(object)
                         var userFromDictionary: User?
                         var publicKeyCredArray: [PublicKeyCredentials] = []
                         var excludeCredentialsArray: [ExcludeCredentials] = []
@@ -83,8 +82,7 @@ class PresidioIdentityModelController {
                         if let receivedTimeout = object["timeout"] as? Int {
                              timeout = receivedTimeout
                         }
-        
-//                        completion(PublicKeyCreationsResponse(status: "ok", errorMessage: "", rp: rp, user: userFromDictionary, challenge: challenge, pubKeyCredParams: publicKeyCredArray, timeout: timeout, excludeCredentials: excludeCredentialsArray, authenticatorSelection: authenticatorSelection, attestation: ""))
+//                               completion(PublicKeyCreationsResponse(status: "ok", errorMessage: "", rp: rp, user: userFromDictionary, challenge: challenge, pubKeyCredParams: publicKeyCredArray, timeout: timeout, excludeCredentials: excludeCredentialsArray, authenticatorSelection: authenticatorSelection, attestation: ""))
                         print("\(object)")
                     }
                 } catch {

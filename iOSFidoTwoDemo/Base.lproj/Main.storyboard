@@ -36,7 +36,7 @@
                                         </connections>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don't have an account? " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rZW-hB-TGs">
-                                        <rect key="frame" x="137.5" y="205.5" width="139" height="14"/>
+                                        <rect key="frame" x="137.5" y="215.5" width="139" height="14"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="14" id="ysb-8z-O42"/>
                                         </constraints>
@@ -45,9 +45,9 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9NI-OR-R7A">
-                                        <rect key="frame" x="20" y="140.5" width="374" height="55"/>
+                                        <rect key="frame" x="20" y="161.5" width="374" height="44"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="55" id="8fn-hQ-8Ef"/>
+                                            <constraint firstAttribute="height" constant="44" id="8fn-hQ-8Ef"/>
                                         </constraints>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="Sign In"/>
@@ -65,7 +65,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zqf-Hh-1oi">
-                                        <rect key="frame" x="166.5" y="227" width="81.5" height="34.5"/>
+                                        <rect key="frame" x="166.5" y="237" width="81.5" height="34.5"/>
                                         <color key="tintColor" name="dark_pink"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Sign up"/>
@@ -79,7 +79,7 @@
                                     <constraint firstAttribute="trailing" secondItem="LUK-Eh-my1" secondAttribute="trailing" constant="20" symbolic="YES" id="4l6-a0-r7z"/>
                                     <constraint firstItem="zqf-Hh-1oi" firstAttribute="top" secondItem="rZW-hB-TGs" secondAttribute="bottom" constant="7.5" id="57j-Xz-WdR"/>
                                     <constraint firstItem="9NI-OR-R7A" firstAttribute="centerX" secondItem="4Xh-eV-VpB" secondAttribute="centerX" id="8fu-h6-Kk5"/>
-                                    <constraint firstItem="9NI-OR-R7A" firstAttribute="top" secondItem="LUK-Eh-my1" secondAttribute="bottom" id="Cvy-jj-VAi"/>
+                                    <constraint firstItem="9NI-OR-R7A" firstAttribute="top" secondItem="LUK-Eh-my1" secondAttribute="bottom" constant="21" id="Cvy-jj-VAi"/>
                                     <constraint firstItem="rZW-hB-TGs" firstAttribute="centerX" secondItem="4Xh-eV-VpB" secondAttribute="centerX" id="Cxi-oX-WaX"/>
                                     <constraint firstItem="LUK-Eh-my1" firstAttribute="top" secondItem="4Xh-eV-VpB" secondAttribute="top" constant="106.5" id="Q8X-Jc-8L7"/>
                                     <constraint firstItem="Y42-FS-ybt" firstAttribute="centerX" secondItem="4Xh-eV-VpB" secondAttribute="centerX" id="Rsd-eR-jeV"/>

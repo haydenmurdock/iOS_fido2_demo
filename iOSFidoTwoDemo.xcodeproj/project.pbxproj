@@ -51,6 +51,7 @@
 		F74C1EEC2950DD05006A62E9 /* AccountManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountManager.swift; sourceTree = "<group>"; };
 		F74C1EEE295274AB006A62E9 /* BankAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankAccountViewController.swift; sourceTree = "<group>"; };
 		F76BA3DD294CDE56001D612C /* CustomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomViewController.swift; sourceTree = "<group>"; };
+		F76E29CC2988A6FE001B51E3 /* iOSFidoTwoDemoDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = iOSFidoTwoDemoDebug.entitlements; sourceTree = "<group>"; };
 		F7F20255294CD9BB0003FBAE /* NetworkExtension.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NetworkExtension.framework; path = System/Library/Frameworks/NetworkExtension.framework; sourceTree = SDKROOT; };
 		F7F20258294CD9BB0003FBAE /* AppProxyProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppProxyProvider.swift; sourceTree = "<group>"; };
 		F7F2025A294CD9BB0003FBAE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -116,6 +117,7 @@
 		F74B907A28B415E7008E53EB /* iOSFidoTwoDemo */ = {
 			isa = PBXGroup;
 			children = (
+				F76E29CC2988A6FE001B51E3 /* iOSFidoTwoDemoDebug.entitlements */,
 				F7F20277294CDB410003FBAE /* iOSFidoTwoDemo.entitlements */,
 				F74C1EEC2950DD05006A62E9 /* AccountManager.swift */,
 				F74B907B28B415E7008E53EB /* AppDelegate.swift */,
@@ -431,7 +433,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = iOSFidoTwoDemo/iOSFidoTwoDemo.entitlements;
+				CODE_SIGN_ENTITLEMENTS = iOSFidoTwoDemo/iOSFidoTwoDemoDebug.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 11;
