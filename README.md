@@ -1,3 +1,3 @@
-#Presidio Identity Fido 2 iOS Demo 
+Presidio Identity Fido 2 iOS Demo 
 
 
