@@ -16,14 +16,14 @@ class ViewController: UIViewController {
     @IBOutlet weak var blueBackgroundUIView: UIView!
     let activityIndicator = UIActivityIndicatorView()
     let blurView = UIView()
-    @IBOutlet weak var signInButton: UIButton!
+    
     @IBOutlet weak var signUpbutton: UIButton!
     @IBOutlet weak var noaccountLabel: UILabel!
     @IBOutlet weak var headingLabel: UILabel!
     private var signInObserver: NSObjectProtocol?
     private var signInErrorObserver: NSObjectProtocol?
     var challenge: Data?
-    var isSignUp = false
+    var isSignUp = true
     
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
@@ -33,14 +33,15 @@ class ViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        signInButton.isHidden = true
-        signInButton.isUserInteractionEnabled = false
-        showSignInUI()
+        showSignUpUI()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         overrideUserInterfaceStyle = .light
+        let tap = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+
+        view.addGestureRecognizer(tap)
         roundView()
         
         
@@ -78,13 +79,13 @@ class ViewController: UIViewController {
         guard let username = usernameTextField.text, username.count > 0 else {return}
         addBlurView()
         
-            PresidioIdentityModelController.shared.sendUserName(userName: username, displayName: username) { response in
-           if let response = response {
+            PresidioIdentityModelController.shared.sendUserName(userName: username, displayName: username) { challengeData in
+           if let challengeData = challengeData {
                DispatchQueue.main.async {
                    if(self.isSignUp){
-                   self.createAccount(username: username, challenge: response)
+                       self.createAccount(username: username, challenge: challengeData)
                    } else {
-                       self.signIn(challenge: response)
+                       self.signIn(challenge: challengeData)
                    }
                 }
             }
@@ -92,7 +93,11 @@ class ViewController: UIViewController {
     }
     
     @IBAction func signUpbuttonPressed(_ sender: Any) {
-        showSignUpUI()
+        if isSignUp {
+            showSignInUI()
+        } else {
+            showSignUpUI()
+        }
     }
     
     func didFinishSignIn() {
@@ -137,6 +142,7 @@ class ViewController: UIViewController {
         }
 
         guard let window = self.view.window else { fatalError("The view was not in the app's view hierarchy!") }
+    
         (UIApplication.shared.delegate as? AppDelegate)?.accountManager.signUpWith(userName: username, anchor: window, challenge: challenge)
     }
     
@@ -154,31 +160,17 @@ class ViewController: UIViewController {
         // Present alert to user
         self.present(dialogMessage, animated: true, completion: nil)
     }
-    @IBAction func signInButtonPressed(_ sender: Any) {
-        addBlurView()
-        guard let username = usernameTextField.text, username.count > 0 else {return}
-        
-        PresidioIdentityModelController.shared.sendUserName(userName: username, displayName: username) { response in
-               if let response = response {
-                   DispatchQueue.main.async {
-                       self.signIn(challenge: response)
-                   }
-               }
-           }
-    }
+
     
     func showSignUpUI() {
         isSignUp = true
         usernameTextField.isHidden = false
         usernameTextField.isUserInteractionEnabled = true
-        signInButton.isHidden = true
-        signInButton.isUserInteractionEnabled = false
-        
-        noaccountLabel.isHidden = true
-        signUpbutton.isHidden = true
+        noaccountLabel.text = "Already have an account?"
+  
         headingLabel.text = "Sign Up"
         usernameTextField.text = ""
-        usernameTextField.becomeFirstResponder()
+
         
         view.updateConstraints()
     }
@@ -186,17 +178,18 @@ class ViewController: UIViewController {
         isSignUp = false
         usernameTextField.isHidden = false
         usernameTextField.isUserInteractionEnabled = true
-        signInButton.isHidden = false
-        signInButton.isUserInteractionEnabled = true
     
-        
-        noaccountLabel.isHidden = false
-        signUpbutton.isHidden = false
+        noaccountLabel.text = "Don't have an account?"
+    
         headingLabel.text = "Welcome Back"
         usernameTextField.text = ""
-       // usernameTextField.becomeFirstResponder()
+    
         
         view.updateConstraints()
+    }
+    @objc func dismissKeyboard() {
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
     }
 }
 

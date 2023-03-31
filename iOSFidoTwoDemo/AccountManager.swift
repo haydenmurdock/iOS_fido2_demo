@@ -58,7 +58,7 @@ class AccountManager: NSObject, ASAuthorizationControllerPresentationContextProv
         isPerformingModalReqest = true
     }
 
-    func beginAutoFillAssistedPasskeySignIn(anchor: ASPresentationAnchor) {
+    func beginAutoFillAssistedPasskeySignIn(anchor: ASPresentationAnchor, challenge: Data) {
         self.authenticationAnchor = anchor
 
         let publicKeyCredentialProvider = ASAuthorizationPlatformPublicKeyCredentialProvider(relyingPartyIdentifier: domain)
@@ -66,8 +66,7 @@ class AccountManager: NSObject, ASAuthorizationControllerPresentationContextProv
         // Fetch the challenge from the server. The challenge needs to be unique for each request.
         
         // change to make this presidioIdentity's challenge
-    
-        let challenge = Data()
+
         let assertionRequest = publicKeyCredentialProvider.createCredentialAssertionRequest(challenge: challenge)
 
         // AutoFill-assisted requests only support ASAuthorizationPlatformPublicKeyCredentialAssertionRequest.
@@ -78,6 +77,7 @@ class AccountManager: NSObject, ASAuthorizationControllerPresentationContextProv
     }
     
     func signUpWith(userName: String, anchor: ASPresentationAnchor, challenge: Data) {
+        print("signup hit")
         self.authenticationAnchor = anchor
         let publicKeyCredentialProvider = ASAuthorizationPlatformPublicKeyCredentialProvider(relyingPartyIdentifier: domain)
 
@@ -85,9 +85,8 @@ class AccountManager: NSObject, ASAuthorizationControllerPresentationContextProv
         // The userID is the identifier for the user's account.
         
         let userID = Data(UUID().uuidString.utf8)
-
-        let registrationRequest = publicKeyCredentialProvider.createCredentialRegistrationRequest(challenge: challenge,
-                                                                                                  name: userName, userID: userID)
+        print("challenge string passed to registration request: \(String(data: challenge, encoding: .utf8))")
+        let registrationRequest = publicKeyCredentialProvider.createCredentialRegistrationRequest(challenge: challenge,name: userName, userID: userID)
 
         // Use only ASAuthorizationPlatformPublicKeyCredentialRegistrationRequests or
         // ASAuthorizationSecurityKeyPublicKeyCredentialRegistrationRequests here.
@@ -99,28 +98,30 @@ class AccountManager: NSObject, ASAuthorizationControllerPresentationContextProv
     }
     
     func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
-        let logger = Logger()
         switch authorization.credential {
         case let credentialRegistration as ASAuthorizationPlatformPublicKeyCredentialRegistration:
-            logger.log("A new passkey was registered: \(credentialRegistration)")
+           print("A new passkey was registered: \(credentialRegistration)")
             // Verify the attestationObject and clientDataJSON with your service.
             // The attestationObject contains the user's new public key to store and use for subsequent sign-ins.
-            // let attestationObject = credentialRegistration.rawAttestationObject
-            // let clientDataJSON = credentialRegistration.rawClientDataJSON
+            PresidioIdentityModelController().registerUserNameReponse(credentialRegistration: credentialRegistration) { data in
+                if let data = data {
+                    print("data received. \(data)")
+                }
+            }
 
             // After the server verifies the registration and creates the user account, sign in the user with the new account.
             didFinishSignIn()
         case let credentialAssertion as ASAuthorizationPlatformPublicKeyCredentialAssertion:
-            logger.log("A passkey was used to sign in: \(credentialAssertion)")
+            print("A passkey was used to sign in: \(credentialAssertion)")
             // Verify the below signature and clientDataJSON with your service for the given userID.
-            // let signature = credentialAssertion.signature
-            // let clientDataJSON = credentialAssertion.rawClientDataJSON
-            // let userID = credentialAssertion.userID
+//             let signature = credentialAssertion.signature
+//             let clientDataJSON = credentialAssertion.rawClientDataJSON
+//             let userID = credentialAssertion.userID
 
             // After the server verifies the assertion, sign in the user.
             didFinishSignIn()
         case let passwordCredential as ASPasswordCredential:
-            logger.log("A password was provided: \(passwordCredential)")
+            print("A password was provided: \(passwordCredential)")
             // Verify the userName and password with your service.
             // let userName = passwordCredential.user
             // let password = passwordCredential.password

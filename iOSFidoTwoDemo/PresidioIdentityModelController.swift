@@ -6,32 +6,30 @@
 //
 
 import Foundation
-
+import AuthenticationServices
 
 class PresidioIdentityModelController {
     static let shared = PresidioIdentityModelController()
-   // let baseUrl = "https://develop.presidioidentity.net/api/"
     let baseUrl = "https://haydenapp.app.presidioidentity.net/fido2/"
     
     func sendUserName(userName: String, displayName: String, completion: @escaping(Data?) -> Void) {
         let attestationOptionsUrlString = baseUrl + "attestation/options"
-        print(attestationOptionsUrlString)
+
         let url = URL(string: attestationOptionsUrlString)!
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type") // change as per server requirements
         request.addValue("application/json", forHTTPHeaderField: "Accept")
 
-        let authenticatorSelection = AuthenticatorSelection(requiresResidentKey: "false", userVerificiation: "preferred")
 
         do {
-            let jsonAuthSelectionData = try JSONEncoder().encode(authenticatorSelection)
-            let jsonAuthString = String(data: jsonAuthSelectionData, encoding: String.Encoding.utf8)
+            let jsonSelectionData: [String: Any] = ["requiresResidentKey": "false", "userVerification": "true", "authenticatorAttachement": "platform"]
             
-           let userNamePost = userNamePostRequest(username: userName, displayName: displayName, attestation: "none", authenticatorSelection: jsonAuthString)
-            let jsonUserName = try JSONEncoder().encode(userNamePost)
+            let userNameJson: [String: Any] = ["username": userName, "displayName": userName, "userVerification": "preferred", "attestation": "direct", "authenticatorSelection": jsonSelectionData]
+            
+            print("JSON being sent\(userNameJson)")
+            let jsonUserName = try JSONSerialization.data(withJSONObject: userNameJson)
             request.httpBody = jsonUserName
-        print("URL Body = \(jsonUserName)")
             
         } catch {
            print(error.localizedDescription)
@@ -44,7 +42,7 @@ class PresidioIdentityModelController {
             }
             if let data = data {
                 do {
-                    completion(data)
+                    
                     if let object =  try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
                         var userFromDictionary: User?
                         var publicKeyCredArray: [PublicKeyCredentials] = []
@@ -54,7 +52,7 @@ class PresidioIdentityModelController {
                         var timeout: Int?
                         var authenticatorSelection: AuthenticatorSelection?
                         var attestation: String?
-                
+                        print("\(object)")
                         
                         if let status = object["status"] as? String {
                             if status != "ok"{
@@ -70,7 +68,7 @@ class PresidioIdentityModelController {
                         if let excludeCredentials = object["excludeCredentials" ] as? [Any]{
                             excludeCredentialsArray = self.getExcludeCredentials(credArray: excludeCredentials)
                         }
-                        if let receivedChallenge = object["challange"] as? String {
+                        if let receivedChallenge = object["challenge"] as? String {
                             challenge = receivedChallenge
                         }
                         if let receivedRp = object["rp"] as? [String: Any]{
@@ -82,8 +80,13 @@ class PresidioIdentityModelController {
                         if let receivedTimeout = object["timeout"] as? Int {
                              timeout = receivedTimeout
                         }
-//                               completion(PublicKeyCreationsResponse(status: "ok", errorMessage: "", rp: rp, user: userFromDictionary, challenge: challenge, pubKeyCredParams: publicKeyCredArray, timeout: timeout, excludeCredentials: excludeCredentialsArray, authenticatorSelection: authenticatorSelection, attestation: ""))
-                        print("\(object)")
+                        let PKCR = PublicKeyCreationsResponse(status: "ok", errorMessage: "", rp: rp, user: userFromDictionary, challenge: challenge, pubKeyCredParams: publicKeyCredArray, timeout: timeout, excludeCredentials: excludeCredentialsArray, authenticatorSelection: authenticatorSelection, attestation: "")
+                        guard let challenge = PKCR.challenge else {
+                            completion(nil)
+                            return
+                        }
+                        completion(challenge.data(using: .utf8)?.base64EncodedData())
+                        
                     }
                 } catch {
                     print(String(describing: error))
@@ -92,7 +95,61 @@ class PresidioIdentityModelController {
         }.resume()
     }
     
+    func registerUserNameReponse(credentialRegistration: ASAuthorizationPlatformPublicKeyCredentialRegistration, completion: @escaping(Data?) -> Void) {
+        
+        let attestationResults = baseUrl + "attestation/result"
+        
+        let url = URL(string: attestationResults)!
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
+        
+        let attestationObject = credentialRegistration.rawAttestationObject!.base64EncodedString()
+        let clientDataJSON = credentialRegistration.rawClientDataJSON.base64EncodedString()
+        let id = credentialRegistration.credentialID.base64EncodedString()
     
+        let type = "public-key"
+      
+        
+        do {
+            let jsonSelectionData: [String: Any] = ["clientDataJSON": clientDataJSON, "attestationObject": attestationObject]
+            
+            let registerJson : [String: Any] = ["id": id, "type": type, "rawId": id, "response": jsonSelectionData]
+            print(registerJson)
+            let json = try JSONSerialization.data(withJSONObject: registerJson, options: .prettyPrinted)
+            request.httpBody = json
+        } catch {
+            print(error.localizedDescription)
+        }
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            if let error = error {
+                print(error.localizedDescription)
+                completion(nil)
+            }
+            if let data = data {
+                do {
+                    if let object =  try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
+                        if let status = object["status"] as? String {
+                            if status != "ok"{
+                                print("Error: status: \(status) for attestation/result response")
+                                if let errorMessage = object["errorMessage"] as? String {
+                                    print(errorMessage)
+                                }
+                                completion(nil)
+                            } else {
+                                print("Status: ok for attestation/result reponse")
+                            }
+                            completion(data)
+                        }
+                    }
+                }catch{
+                    print("Issue parsing status object")
+                    completion(nil)
+                }
+            }
+        }.resume()
+    }
     
     
     func getUser(dict: [String: Any])-> User? {
@@ -165,8 +222,4 @@ class PresidioIdentityModelController {
         }
         return pubKeyCredArray
     }
-    
-   
-    
-    
 }

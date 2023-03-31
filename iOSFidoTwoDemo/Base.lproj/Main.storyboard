@@ -26,17 +26,17 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Xh-eV-VpB">
                                 <rect key="frame" x="0.0" y="330" width="414" height="576"/>
                                 <subviews>
-                                    <textField hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="username" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="LUK-Eh-my1">
+                                    <textField hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="username" clearsOnBeginEditing="YES" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="LUK-Eh-my1">
                                         <rect key="frame" x="20" y="106.5" width="374" height="34"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <textInputTraits key="textInputTraits" returnKeyType="send" textContentType="username"/>
                                         <connections>
                                             <action selector="submitBtnTouched:" destination="BYZ-38-t0r" eventType="primaryActionTriggered" id="5ye-Id-3a4"/>
                                         </connections>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don't have an account? " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rZW-hB-TGs">
-                                        <rect key="frame" x="137.5" y="215.5" width="139" height="14"/>
+                                        <rect key="frame" x="137.5" y="160.5" width="139" height="14"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="14" id="ysb-8z-O42"/>
                                         </constraints>
@@ -44,17 +44,6 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9NI-OR-R7A">
-                                        <rect key="frame" x="20" y="161.5" width="374" height="44"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="44" id="8fn-hQ-8Ef"/>
-                                        </constraints>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="filled" title="Sign In"/>
-                                        <connections>
-                                            <action selector="signInButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Yam-BZ-2wM"/>
-                                        </connections>
-                                    </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome back! " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y42-FS-ybt">
                                         <rect key="frame" x="101" y="41" width="212" height="33"/>
                                         <constraints>
@@ -65,7 +54,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zqf-Hh-1oi">
-                                        <rect key="frame" x="166.5" y="237" width="81.5" height="34.5"/>
+                                        <rect key="frame" x="166.5" y="182" width="81.5" height="34.5"/>
                                         <color key="tintColor" name="dark_pink"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Sign up"/>
@@ -78,17 +67,13 @@
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="LUK-Eh-my1" secondAttribute="trailing" constant="20" symbolic="YES" id="4l6-a0-r7z"/>
                                     <constraint firstItem="zqf-Hh-1oi" firstAttribute="top" secondItem="rZW-hB-TGs" secondAttribute="bottom" constant="7.5" id="57j-Xz-WdR"/>
-                                    <constraint firstItem="9NI-OR-R7A" firstAttribute="centerX" secondItem="4Xh-eV-VpB" secondAttribute="centerX" id="8fu-h6-Kk5"/>
-                                    <constraint firstItem="9NI-OR-R7A" firstAttribute="top" secondItem="LUK-Eh-my1" secondAttribute="bottom" constant="21" id="Cvy-jj-VAi"/>
                                     <constraint firstItem="rZW-hB-TGs" firstAttribute="centerX" secondItem="4Xh-eV-VpB" secondAttribute="centerX" id="Cxi-oX-WaX"/>
                                     <constraint firstItem="LUK-Eh-my1" firstAttribute="top" secondItem="4Xh-eV-VpB" secondAttribute="top" constant="106.5" id="Q8X-Jc-8L7"/>
                                     <constraint firstItem="Y42-FS-ybt" firstAttribute="centerX" secondItem="4Xh-eV-VpB" secondAttribute="centerX" id="Rsd-eR-jeV"/>
                                     <constraint firstItem="zqf-Hh-1oi" firstAttribute="centerX" secondItem="4Xh-eV-VpB" secondAttribute="centerX" id="UB2-6r-7W2"/>
+                                    <constraint firstItem="rZW-hB-TGs" firstAttribute="top" secondItem="LUK-Eh-my1" secondAttribute="bottom" constant="20" id="dDT-if-Ijj"/>
                                     <constraint firstItem="LUK-Eh-my1" firstAttribute="leading" secondItem="4Xh-eV-VpB" secondAttribute="leading" constant="20" symbolic="YES" id="kNS-Gw-Wn9"/>
-                                    <constraint firstItem="9NI-OR-R7A" firstAttribute="leading" secondItem="4Xh-eV-VpB" secondAttribute="leading" constant="20" id="oJ1-R9-16C"/>
-                                    <constraint firstItem="rZW-hB-TGs" firstAttribute="top" secondItem="9NI-OR-R7A" secondAttribute="bottom" constant="10" id="pMi-xq-QNc"/>
                                     <constraint firstItem="Y42-FS-ybt" firstAttribute="top" secondItem="4Xh-eV-VpB" secondAttribute="top" constant="41" id="rmp-Og-cib"/>
-                                    <constraint firstAttribute="trailing" secondItem="9NI-OR-R7A" secondAttribute="trailing" constant="20" id="x5K-NE-ud2"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -109,7 +94,6 @@
                         <outlet property="blueBackgroundUIView" destination="4Xh-eV-VpB" id="TcK-3g-aR3"/>
                         <outlet property="headingLabel" destination="Y42-FS-ybt" id="H1V-0h-l23"/>
                         <outlet property="noaccountLabel" destination="rZW-hB-TGs" id="n7f-AC-g36"/>
-                        <outlet property="signInButton" destination="9NI-OR-R7A" id="OTd-Qf-Dkb"/>
                         <outlet property="signUpbutton" destination="zqf-Hh-1oi" id="IPC-Fn-eKN"/>
                         <outlet property="usernameTextField" destination="LUK-Eh-my1" id="7fP-pl-rnR"/>
                         <segue destination="KGi-9O-Lkz" kind="presentation" identifier="toBankAccount" modalPresentationStyle="fullScreen" modalTransitionStyle="flipHorizontal" id="Wce-8u-rbo"/>

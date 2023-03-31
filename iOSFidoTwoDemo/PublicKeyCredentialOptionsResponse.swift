@@ -77,15 +77,15 @@ struct ExcludeCredentials: Codable {
 struct AuthenticatorSelection: Codable {
     var requiresResidentKey: String?
     var userVerificiation: String?
-  //  var authenticatorAttachement: String?
+    var authenticatorAttachement: String?
 }
 
 
-struct userNamePostRequest: Codable {
-        let username : String?
-        let displayName: String?
-        let attestation: String?
-        let authenticatorSelection: String?
+struct UserNamePostRequest: Codable {
+        var username : String?
+        var displayName: String?
+        var attestation: String?
+        var authenticatorSelection: Data?
     
 }
 
