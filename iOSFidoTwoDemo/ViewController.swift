@@ -16,7 +16,6 @@ class ViewController: UIViewController {
     @IBOutlet weak var blueBackgroundUIView: UIView!
     let activityIndicator = UIActivityIndicatorView()
     let blurView = UIView()
-    
     @IBOutlet weak var signUpbutton: UIButton!
     @IBOutlet weak var noaccountLabel: UILabel!
     @IBOutlet weak var headingLabel: UILabel!
@@ -27,7 +26,6 @@ class ViewController: UIViewController {
     
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
-
         roundView()
     }
     
@@ -40,11 +38,8 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         overrideUserInterfaceStyle = .light
         let tap = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
-
         view.addGestureRecognizer(tap)
         roundView()
-        
-        
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -52,9 +47,8 @@ class ViewController: UIViewController {
         signInObserver = NotificationCenter.default.addObserver(forName: .UserSignedIn, object: nil, queue: nil) {_ in
             self.didFinishSignIn()
         }
-        
         signInErrorObserver = NotificationCenter.default.addObserver(forName: .ModalSignInSheetCanceled, object: nil, queue: nil) { _ in
-            guard let username = self.usernameTextField.text else {
+            guard let _ = self.usernameTextField.text else {
                 self.removeBlurView()
                 return
             }
@@ -78,8 +72,7 @@ class ViewController: UIViewController {
         self.view.endEditing(true)
         guard let username = usernameTextField.text, username.count > 0 else {return}
         addBlurView()
-        
-            PresidioIdentityModelController.shared.sendUserName(userName: username, displayName: username) { challengeData in
+        PresidioIdentityModelController.shared.sendUserName(userName: username, displayName: username) { challengeData in
            if let challengeData = challengeData {
                DispatchQueue.main.async {
                    if(self.isSignUp){
@@ -120,14 +113,10 @@ class ViewController: UIViewController {
         blurEffectView.frame = view.bounds
         blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         blurView.addSubview(blurEffectView)
-        
-        
         activityIndicator.color = .white
         self.view.addSubview(activityIndicator)
         activityIndicator.center = blurView.center
         activityIndicator.startAnimating()
-        
-        
     }
     
     private func removeBlurView() {
@@ -167,24 +156,17 @@ class ViewController: UIViewController {
         usernameTextField.isHidden = false
         usernameTextField.isUserInteractionEnabled = true
         noaccountLabel.text = "Already have an account?"
-  
         headingLabel.text = "Sign Up"
         usernameTextField.text = ""
-
-        
         view.updateConstraints()
     }
     func showSignInUI() {
         isSignUp = false
         usernameTextField.isHidden = false
         usernameTextField.isUserInteractionEnabled = true
-    
         noaccountLabel.text = "Don't have an account?"
-    
         headingLabel.text = "Welcome Back"
         usernameTextField.text = ""
-    
-        
         view.updateConstraints()
     }
     @objc func dismissKeyboard() {

@@ -37,9 +37,7 @@
 //"authenticatorSelection": "{ requireResidentKey: false, userVerification: 'preferred' }",
 //"attestation": "none"
 
-
 import Foundation
-
 
 struct PublicKeyCreationsResponse: Codable {
     var status: String?
@@ -80,13 +78,11 @@ struct AuthenticatorSelection: Codable {
     var authenticatorAttachement: String?
 }
 
-
 struct UserNamePostRequest: Codable {
         var username : String?
         var displayName: String?
         var attestation: String?
         var authenticatorSelection: Data?
-    
 }
 
 

@@ -14,14 +14,12 @@ class PresidioIdentityModelController {
     
     func sendUserName(userName: String, displayName: String, completion: @escaping(Data?) -> Void) {
         let attestationOptionsUrlString = baseUrl + "attestation/options"
-
         let url = URL(string: attestationOptionsUrlString)!
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type") // change as per server requirements
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.addValue("application/json", forHTTPHeaderField: "Accept")
-
-
+        
         do {
             let jsonSelectionData: [String: Any] = ["requiresResidentKey": "false", "userVerification": "true", "authenticatorAttachement": "platform"]
             
@@ -96,25 +94,19 @@ class PresidioIdentityModelController {
     }
     
     func registerUserNameReponse(credentialRegistration: ASAuthorizationPlatformPublicKeyCredentialRegistration, completion: @escaping(Data?) -> Void) {
-        
         let attestationResults = baseUrl + "attestation/result"
-        
         let url = URL(string: attestationResults)!
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.addValue("application/json", forHTTPHeaderField: "Accept")
-        
+        let type = "public-key"
         let attestationObject = credentialRegistration.rawAttestationObject!.base64EncodedString()
         let clientDataJSON = credentialRegistration.rawClientDataJSON.base64EncodedString()
         let id = credentialRegistration.credentialID.base64EncodedString()
-    
-        let type = "public-key"
-      
         
         do {
             let jsonSelectionData: [String: Any] = ["clientDataJSON": clientDataJSON, "attestationObject": attestationObject]
-            
             let registerJson : [String: Any] = ["id": id, "type": type, "rawId": id, "response": jsonSelectionData]
             print(registerJson)
             let json = try JSONSerialization.data(withJSONObject: registerJson, options: .prettyPrinted)
@@ -151,12 +143,10 @@ class PresidioIdentityModelController {
         }.resume()
     }
     
-    
     func getUser(dict: [String: Any])-> User? {
         var displayName: String?
         var id: String?
         var name: String?
-        
         if let dName  = dict["displayName"] as? String {
             displayName = dName
         }
@@ -180,7 +170,6 @@ class PresidioIdentityModelController {
            name = nameValue
         }
         return Rp(id: id, name: name)
-        
     }
     
     func getAuthSelection(authSelectionDict: [String: Any]) -> AuthenticatorSelection?{

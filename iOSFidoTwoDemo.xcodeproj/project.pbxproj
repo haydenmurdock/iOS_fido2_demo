@@ -18,7 +18,6 @@
 		F74B909228B416ED008E53EB /* PublicKeyCredentialOptionsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F74B909128B416ED008E53EB /* PublicKeyCredentialOptionsResponse.swift */; };
 		F74C1EED2950DD05006A62E9 /* AccountManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F74C1EEC2950DD05006A62E9 /* AccountManager.swift */; };
 		F74C1EEF295274AB006A62E9 /* BankAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F74C1EEE295274AB006A62E9 /* BankAccountViewController.swift */; };
-		F76BA3DE294CDE56001D612C /* CustomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F76BA3DD294CDE56001D612C /* CustomViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -50,7 +49,6 @@
 		F74B909128B416ED008E53EB /* PublicKeyCredentialOptionsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicKeyCredentialOptionsResponse.swift; sourceTree = "<group>"; };
 		F74C1EEC2950DD05006A62E9 /* AccountManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountManager.swift; sourceTree = "<group>"; };
 		F74C1EEE295274AB006A62E9 /* BankAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankAccountViewController.swift; sourceTree = "<group>"; };
-		F76BA3DD294CDE56001D612C /* CustomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomViewController.swift; sourceTree = "<group>"; };
 		F76E29CC2988A6FE001B51E3 /* iOSFidoTwoDemoDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = iOSFidoTwoDemoDebug.entitlements; sourceTree = "<group>"; };
 		F7F20255294CD9BB0003FBAE /* NetworkExtension.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NetworkExtension.framework; path = System/Library/Frameworks/NetworkExtension.framework; sourceTree = SDKROOT; };
 		F7F20258294CD9BB0003FBAE /* AppProxyProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppProxyProvider.swift; sourceTree = "<group>"; };
@@ -130,7 +128,6 @@
 				F74B908428B415E8008E53EB /* Assets.xcassets */,
 				F74B908628B415E8008E53EB /* LaunchScreen.storyboard */,
 				F74B908928B415E8008E53EB /* Info.plist */,
-				F76BA3DD294CDE56001D612C /* CustomViewController.swift */,
 			);
 			path = iOSFidoTwoDemo;
 			sourceTree = "<group>";
@@ -276,7 +273,6 @@
 				F74C1EEF295274AB006A62E9 /* BankAccountViewController.swift in Sources */,
 				F74B908028B415E7008E53EB /* ViewController.swift in Sources */,
 				F74B907C28B415E7008E53EB /* AppDelegate.swift in Sources */,
-				F76BA3DE294CDE56001D612C /* CustomViewController.swift in Sources */,
 				F74B909028B4160D008E53EB /* PresidioIdentityModelController.swift in Sources */,
 				F74B907E28B415E7008E53EB /* SceneDelegate.swift in Sources */,
 			);

@@ -26,7 +26,6 @@ class AccountManager: NSObject, ASAuthorizationControllerPresentationContextProv
         self.authenticationAnchor = anchor
         let publicKeyCredentialProvider = ASAuthorizationPlatformPublicKeyCredentialProvider(relyingPartyIdentifier: domain)
 
-
         let assertionRequest = publicKeyCredentialProvider.createCredentialAssertionRequest(challenge: challenge)
 
         // Also allow the user to use a saved password, if they have one.
@@ -54,7 +53,6 @@ class AccountManager: NSObject, ASAuthorizationControllerPresentationContextProv
             // passkey from a nearby device.
             authController.performRequests()
         }
-
         isPerformingModalReqest = true
     }
 
@@ -131,7 +129,6 @@ class AccountManager: NSObject, ASAuthorizationControllerPresentationContextProv
         default:
             fatalError("Received unknown authorization type.")
         }
-
         isPerformingModalReqest = false
     }
 
